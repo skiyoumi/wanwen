@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>万文小说爬取</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/home_page.css">
+
 </head>
 <body>
-    Hello Word
+<div id="home_page">
+    <div id="home_left">
+        <div class="subject">
+            <span>万文</span>
+            <img src="../static/img/more.png" width="25">
+        </div>
+    </div>
+    <div id="home_right">
+        <div class="nav">
+            <input type="text" placeholder="Search...">
+            <img src="../static/img/head.jpg" width="40">
+        </div>
+        <p class="title">发现</p>
+        <div class="discover">
+            {% for item in data %}
+                <div class="der">
+                    <a href="{{item.href}}">
+                        <img src="../static/img/longwangchanshuo.png" width="90" height="120">
+                    </a>
+                    <span>{{ item.name }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form_tltle">
+            <ul>
+                <li id="xuanhuan">玄幻</li>
+                <li id="xiuzhen">修真</li>
+                <li id="dushi">都市</li>
+                <li id="chuanyue">穿越</li>
+                <li id="wangyou">网游</li>
+                <li id="kehuan">科幻</li>
+            </ul>
+        </div>
+    `   <div class="discover">
+            <div class="der">
+                <img src="../static/img/longwangchanshuo.png" width="90" height="120">
+                <span>龙王传说</span>
+            </div>
+            <div class="der">
+                <img src="../static/img/feijianwendao.jpg" width="90" height="120">
+                <span>飞剑问道</span>
+            </div>
+            <div class="der">
+                <img src="../static/img/futianshi.jpg" width="90" height="120">
+                <span>伏天氏</span>
+            </div>
+            <div class="der">
+                <img src="../static/img/lunhuileyuan.jpg" width="90" height="120">
+                <span>轮回乐园</span>
+            </div>
+            <div class="der">
+                <img src="../static/img/yuanzun.jpg" width="90" height="120">
+                <span>元尊</span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
