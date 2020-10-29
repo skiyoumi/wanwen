@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>万文小说爬取</title>
     <link rel="stylesheet" type="text/css" href="../static/css/home_page.css">
-
+    <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
 </head>
 <body>
 <div id="home_page">
@@ -15,16 +16,18 @@
         </div>
     </div>
     <div id="home_right">
+    <form action="/search_name" method="get">
         <div class="nav">
-            <input type="text" placeholder="Search...">
-            <img src="../static/img/head.jpg" width="40">
+            <input id="search" type="text" placeholder="Search..." name="search_name" value="{{ request.GET.type_name }}">
+            <button class="button" type="submit"></button>
         </div>
+    </form>
         <p class="title">发现</p>
         <div class="discover">
             {% for item in data %}
                 <div class="der">
-                    <a href="{{item.href}}">
-                        <img src="../static/img/longwangchanshuo.png" width="90" height="120">
+                    <a href="../to_detail?name={{item.name}}&author={{item.author}}">
+                        <img src="{{ item.imgurl}}" width="90" height="120">
                     </a>
                     <span>{{ item.name }}</span>
                 </div>
@@ -40,28 +43,17 @@
                 <li id="kehuan">科幻</li>
             </ul>
         </div>
-    `   <div class="discover">
-            <div class="der">
-                <img src="../static/img/longwangchanshuo.png" width="90" height="120">
-                <span>龙王传说</span>
-            </div>
-            <div class="der">
-                <img src="../static/img/feijianwendao.jpg" width="90" height="120">
-                <span>飞剑问道</span>
-            </div>
-            <div class="der">
-                <img src="../static/img/futianshi.jpg" width="90" height="120">
-                <span>伏天氏</span>
-            </div>
-            <div class="der">
-                <img src="../static/img/lunhuileyuan.jpg" width="90" height="120">
-                <span>轮回乐园</span>
-            </div>
-            <div class="der">
-                <img src="../static/img/yuanzun.jpg" width="90" height="120">
-                <span>元尊</span>
-            </div>
+    `   <div id="type_content">
+           {% for item in type_data %}
+                <div class="der">
+                    <a href="../to_detail?name={{item.name}}&author={{item.author}}">
+                        <img src="{{ item.imgurl }}" width="90" height="120">
+                    </a>
+                    <span>{{ item.name }}</span>
+                </div>
+            {% endfor %}
         </div>
+
     </div>
 </div>
 </body>

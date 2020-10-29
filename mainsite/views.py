@@ -1,12 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse,redirect,reverse
 from dao import neo_4j
-from django.http.response import HttpResponse
+import math
+from util import matring
 import json
 
 # Create your views here.
 def index(request):
-    list = neo_4j.main()
-    return render(request, "index.html",{'data':list})
+    list = neo_4j.get_novel_info()
+    type_list=result=neo_4j.felei("玄幻小说")
+    return render(request, "index.html",{'data':list,'type_data':type_list})
+# 跳转到小说详情页面
+def to_detail(request):
+    name=request.GET.get("name")
+    author=request.GET.get("author")
+    list=neo_4j.get_novel_content(name,author)
+    novel=neo_4j.get_novel(name,author)
+    data=matring.list_split(list,3)
+    return render(request, "detail.html",{'data':data,'novel':novel[0]})
+
+def fenlei(request):
+    type_name=request.GET.get("type")
+    result=neo_4j.felei(type_name)
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
+def search(request):
+    search_text=request.GET.get("search_name")
+    result=neo_4j.get_novel(search_text)
+    return render(request,"search.html",{'data':result})
+
 
 
 

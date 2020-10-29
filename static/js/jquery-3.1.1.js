@@ -4559,7 +4559,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 
 		do {
 
-			// If previous iteration zeroed out, double until we get *something*.
+			// If previous iteration zeroed out, double util we get *something*.
 			// Use string for doubling so we don't accidentally see scale as unchanged below
 			scale = scale || ".5";
 
