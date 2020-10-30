@@ -1,3 +1,4 @@
+/*
 $(document).ready(function () {
     $('#xuanhuan').click(function () {
             console.log("点击")
@@ -44,6 +45,9 @@ function request_data(type_name) {
             url: "fenlei/",
             //数据，json字符串
             data: {'type': type_name},
+            beforeSend: function () {
+                $("loading").show();
+            },
             //请求成功
             success: function (result) {
                 console.log(result);
@@ -72,3 +76,4 @@ function load_data(data) {
           $('#type_content').append(html)
 }
 
+*/
