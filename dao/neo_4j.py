@@ -38,5 +38,5 @@ def felei(type):
     info = get_detail(items)
     return info
 
-x=get_novel("斗罗大陆")
-print(x)
+# x=get_novel("斗罗大陆")
+# print(x)
