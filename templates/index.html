@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>万文小说爬取</title>
+    <link rel="shortcut icon" href="../static/img/ww_logo.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="../static/css/home_page.css">
     <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="../static/js/index.js"></script>
 </head>
 <body>
 <div id="home_page">
-    <div id="home_left">
-        <div class="subject">
-            <span>万文</span>
-            <img src="../static/img/more.png" width="25">
-        </div>
-    </div>
     <div id="home_right">
     <form action="/search_name" method="get">
         <div class="nav">
@@ -35,19 +30,19 @@
         </div>
         <div class="form_tltle">
             <ul>
-                <li id="xuanhuan">玄幻</li>
-                <li id="xiuzhen">修真</li>
-                <li id="dushi">都市</li>
-                <li id="chuanyue">穿越</li>
-                <li id="wangyou">网游</li>
-                <li id="kehuan">科幻</li>
+                <li id="xuanhuan"><a href="?type=玄幻小说">玄幻</a></li>
+                <li id="xiuzhen"><a href="?type=修真小说">修真</a></li>
+                <li id="dushi"><a href="?type=都市小说">都市</a></li>
+                <li id="chuanyue"><a href="?type=穿越小说">穿越</a></li>
+                <li id="wangyou"><a href="?type=网游小说">网游</a></li>
+                <li id="kehuan"><a href="?type=科幻小说">科幻</a></li>
             </ul>
         </div>
     `   <div id="type_content">
            {% for item in type_data %}
                 <div class="der">
                     <a href="../to_detail?name={{item.name}}&author={{item.author}}">
-                        <img src="{{ item.imgurl }}" width="90" height="120">
+                        <img src="{{ item.imgurl }}" width="90" height="120" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
                     </a>
                     <span>{{ item.name }}</span>
                 </div>

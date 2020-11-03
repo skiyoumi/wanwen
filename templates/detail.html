@@ -9,7 +9,7 @@
     <div class="wrap">
         <div class="head_top">
             <div class="imgbox">
-                <img src="../static/img/logo.jpg">
+                <img src="../static/img/logo.png">
             </div>
             <div class="search_box">
                 <input class="search-text" name="keyword" type="text" placeholder="雪中悍刀行">
@@ -52,10 +52,10 @@
                 </div>
                  <div class="novel_time">
                     <p class="t3">最后更新:   2020-10-09 19:50:00</p>
-                    <p class="t4">最新:   第1138章 钓鱼！</p>
+                    <p class="t4">最新:   {{novel.newest }}</p>
                 </div>
                 <div class="novel_introduce">
-                    <p>{{ novel.intrduce }}</p>
+                    <p>{% autoescape off %}{{ novel.intrduce }}{% endautoescape %}</p>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 {% for items in data%}
                     <tr class="tr_set">
                         {% for item in items %}
-                            <td><a href="#">{{ item.chapterName }}</a></td>
+                            <td><a href="{{ item.href }}">{{ item.chapterName }}</a></td>
                         {% endfor %}
                     </tr>
                 {% endfor %}
