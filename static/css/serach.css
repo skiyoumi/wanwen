@@ -1,0 +1,98 @@
+html,body,div,p,a,span,li,ul{
+    font-family: "微软雅黑";
+    list-style: none;
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.clearfix{
+    zoom: 1;
+}
+/*清除浮动*/
+.clearfix::after{
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    clear: both;
+}
+.box{
+    min-width: 80%;
+    height: 825px;
+    border:1px solid black;
+}
+.banner{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border:1px solid red;
+}
+.serach_text{
+    width:500px;
+    height: 40px;
+    outline: none;
+    padding-left: 10px;
+   border: 1px solid #D6D6D6;
+    border-radius: 25px;
+}
+.serach_img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: -40px;
+    cursor: pointer;
+}
+.content{
+    height: 1405px;
+     border: 1px solid green;
+    display: flex;
+}
+.content1{
+     height: 725px;
+     display: flex;
+	flex-wrap: wrap;
+    flex-direction: row;
+}
+.serach_book{
+    margin-left: 30px;
+    width: 380px;
+    height: 350px;
+    display: flex;
+    border:1px solid black;
+}
+.book_img{
+    width: 36%;
+    margin: auto;
+  border:1px solid black;
+}
+.book_info{
+    height: 300px;
+    width: 55%;
+    border:1px solid red;
+}
+.book_authon{
+    height: 25px;
+     border-bottom:1px solid black;
+}
+.name{
+    float: left;
+    margin-left: 6px;
+    color: #6F78A7;
+}
+.authon{
+    margin-left: 200px;
+    margin-top: 5px;
+    color: #B3B3B3;
+
+}
+
+.book_intrduce{
+    margin-top: 20px;
+    text-indent:2em;
+    line-height: 30px;
+}
