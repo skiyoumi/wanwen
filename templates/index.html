@@ -11,9 +11,9 @@
 <body>
 <div id="home_page">
     <div id="home_right">
-    <form action="/search_name" method="get">
+    <form action="/search" method="get">
         <div class="nav">
-            <input id="search" type="text" placeholder="Search..." name="search_name" value="{{ request.GET.type_name }}">
+            <input id="search"  type="text" placeholder="Search..." name="search_name" value="{{ request.GET.type_name }}">
             <button class="button" type="submit"></button>
         </div>
     </form>

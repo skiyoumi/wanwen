@@ -1,3 +1,9 @@
+.paq_author{
+	position: absolute;
+	top: 120px;
+	left: 10px;
+}
+
 .grid {
 	max-width: 1300px;
 	margin: 0 auto;
@@ -305,8 +311,8 @@
 }
 
 .cs-style-6 figcaption {
-	height: 100%;
-	width: 100%;
+	width: 150px;
+	height: 200px;
 }
 
 .cs-style-6 figcaption h3 {
@@ -316,7 +322,7 @@
 .cs-style-6 figcaption a {
 	position: absolute;
 	bottom: 20px;
-	right: 20px;
+	left: 90px;
 }
 
 /* Caption Style 7 */

@@ -22,5 +22,5 @@ urlpatterns = [
     path("", views.index),
     path("to_detail", views.to_detail),
     # path("fenlei/",views.fenlei),
-    path('search_name/',views.search),
+    path('search',views.search),
 ]

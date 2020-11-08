@@ -1,7 +1,7 @@
 from py2neo import Graph, Node, Relationship
 from util import get_book_info
 
-graph = Graph("http://localhost:7474", username="neo4j", password="111111")
+graph = Graph("http://localhost:7474", username="neo4j", password="a8823795")
 
 
 # 小说 作者 名字 链接
@@ -29,12 +29,17 @@ def get_novel_content(name, author):
     # print(content)
     return content
 
-
+## 2.数据模型的实现
 # 通过小说名字或者作者查询小说
 def get_novel(text):
-    match_str = 'MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce'
+    match_str = 'MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce,p.href as href limit 20'
     items = graph.run(match_str).data()
     content = get_detail(items)
+    print(content)
+    for i in range(len(content)):
+        response=get_book_info.get_data(content[i]['href'])
+        content[i]['imgurl']=response[0][5]
+    print("更新后："+str(items))
     return content
 
 

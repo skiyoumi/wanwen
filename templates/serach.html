@@ -10,191 +10,42 @@
 </head>
 <body>
 <div class="box">
-
-    <div class="banner">
-        <input class="serach_text" type="text" placeholder="输入查询的书籍">
-
-        <img class="serach_img" src="../static/img/search.png">
-
+    <form action="/search" method="get">
+            <div class="banner">
+        <input  id="search" class="serach_text" type="text" placeholder="输入查询的书籍"  name="search_name" value="{{ request.GET.type_name }}">
+        <button class="button" type="submit"></button>
     </div>
+    </form>
+
     <div class="content">
-        <div class="content1">
-             <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
+        {% for items in data %}
+            <div class="content1">
+            {% for item in items%}
+            <div class="serach_book">
+                <div class="container demo-3">
+                    <!-- Top Navigation -->
 
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                          <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-
-        <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
-
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                               <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-
-        </div>
-        <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
-
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                               <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-
-        </div>
-        <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
-
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
+                    <ul class="grid cs-style-6">
+                        <li>
+                            <figure>
+                                <img src="{{ item.imgurl }}" alt="img01" width="150px" height="200px" href="200">
                                 <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-                 <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
+                                    <h3 name={{ item.name }}></h3>
+                                    <span class="paq_author">{{ item.author }}</span>
+                                    <a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div><!-- /container -->
+                <script src="../static/js/toucheffects.js"></script>
+            </div>
+       {% endfor %}
 
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                                <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-                 <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
 
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                                <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-                    <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
 
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                                <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
+        {% endfor %}
         </div>
-                    <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
-
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                                <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-                    <div class="serach_book">
-            <div class="container demo-3">
-                <!-- Top Navigation -->
-
-                <ul class="grid cs-style-6">
-                    <li>
-                        <figure>
-                            <img src="../static/img/e525dd1b1af2a981cc83cb7b8e9cbc38.jpeg" alt="img01">
-                                <figcaption>
-							<h3>斗破苍穹</h3>
-							<span>天蚕土豆</span>
-							<a href="http://dribbble.com/shots/1115632-Camera">阅读</a>
-						</figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </div><!-- /container -->
-            <script src="../static/js/toucheffects.js"></script>
-        </div>
-        </div>
-
 
 
     </div>
