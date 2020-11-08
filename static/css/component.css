@@ -1,5 +1,10 @@
+.paq_author{
+	position: absolute;
+	top: 120px;
+	left: 10px;
+}
+
 .grid {
-	padding: 20px 20px 100px 20px;
 	max-width: 1300px;
 	margin: 0 auto;
 	list-style: none;
@@ -8,7 +13,7 @@
 
 .grid li {
 	display: inline-block;
-	width: 300px;
+	width: 440px;
 	margin: 0;
 	padding: 20px;
 	text-align: left;
@@ -18,6 +23,7 @@
 .grid figure {
 	margin: 0;
 	position: relative;
+	width: 300px;
 }
 
 .grid figure img {
@@ -36,15 +42,9 @@
 }
 
 .grid figcaption h3 {
+	margin: 0;
 	padding: 0;
 	color: #fff;
-	margin: 0;
-	position: relative;
-	top: -15px;
-}
-.grid figcaption span{
-	position: relative;
-	top: -10px;
 }
 
 .grid figcaption span:before {
@@ -311,8 +311,8 @@
 }
 
 .cs-style-6 figcaption {
-	height: 100%;
-	width: 100%;
+	width: 150px;
+	height: 200px;
 }
 
 .cs-style-6 figcaption h3 {
@@ -322,7 +322,7 @@
 .cs-style-6 figcaption a {
 	position: absolute;
 	bottom: 20px;
-	right: 20px;
+	left: 90px;
 }
 
 /* Caption Style 7 */
