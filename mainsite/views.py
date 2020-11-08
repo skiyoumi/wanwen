@@ -35,12 +35,13 @@ def to_detail(request):
 
 def search(request):
     search_text = request.GET.get("wd")
-    print(search_text)
+    # print(search_text)
     if search_text == '':
         return redirect("/")
     else:
         result = neo_4j.get_novel(search_text)
-        return render(request, "search.html", {'data': result})
+        body = matring.list_split(result, 6)
+        return render(request, "serach.html", {'data': body})
 
 
 def get_chapter(request):
@@ -50,4 +51,4 @@ def get_chapter(request):
     data = neo_4j.get_nnovel_chapter(name=name, author=author)
     body = matring.list_split(data, 3)
     detail = neo_4j.get_novel_detail(name, author)
-    return render(request, "detail.html", {'data': body,'novel': detail[0]})
+    return render(request, "detail.html", {'data': body, 'novel': detail[0]})

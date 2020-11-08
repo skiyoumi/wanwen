@@ -68,14 +68,6 @@ body{
     align-items: flex-start;
     justify-content: flex-start;
 }
-#b_pic{
-    height: 270px;
-    width: 180px;
-}
-#b_pic img{
-    min-width: 100%;
-    min-height: 100%;
-}
 .novel_content{
     margin-left: 60px;
     display: flex;

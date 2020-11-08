@@ -35,6 +35,7 @@ def get_novel_detail(name, author):
 def get_novel(text):
     match_str = 'MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce'
     items = graph.run(match_str).data()
+    # print(items)
     return items
 
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="home_page">
-        <form action="search/" method="get">
+        <form action="search" method="get">
             <div class="nav">
                 <input id="search" type="text" placeholder="Search..." name="wd" value="{{ request.GET.wd }}">
                 <button class="button" type="submit"></button>
@@ -36,6 +36,7 @@
                 <li id="wangyou"><a href="?type=网游小说">网游</a></li>
                 <li id="kehuan"><a href="?type=科幻小说">科幻</a></li>
             </ul>
+            <p style="float: right"><a href="/more?type={{ request.GET.type }}">更多-></a></p>
         </div>
     `   <div id="type_content">
            {% for item in type_data %}

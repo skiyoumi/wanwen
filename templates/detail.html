@@ -15,7 +15,7 @@
         </div>
         <div class="muen_top">
             <ul>
-                <li><a href="javascript:void(0);">首页</a></li>
+                <li><a href="/">首页</a></li>
                 <li><a href="javascript:void(0);">我的书架</a></li>
                 <li><a href="javascript:void(0);">玄幻小说</a></li>
                 <li><a href="javascript:void(0);">修真小说</a></li>
@@ -29,7 +29,7 @@
         </div>
         <div class="content_body">
             <div id="b_pic">
-                <img src="{{novel.imgurl}}" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
+                <img src="{{novel.imgurl}}" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'" width="180" height="270">
             </div>
             <div class="novel_content">
                 <P class="n_title">{{novel.name}}</P>
@@ -40,7 +40,6 @@
                     </div>
                     <div class="i_right">
                         <p>类别：  {{novel.type}}</p>
-                        <p>最新:   {{novel.newest }}</p>
                     </div>
                 </div>
                 <p class="n_intro">简介：{% autoescape off %}{{ novel.intro }}{% endautoescape %}</p>
