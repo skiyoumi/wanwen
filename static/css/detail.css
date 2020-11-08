@@ -1,162 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
 body{
-    width: 100%;
-    height: 100%;
+    min-width: 1366px;
 }
 .wrap {
-    width: 1200px;
+    width: 80%;
+    height: auto;
     margin: 0 auto;
 }
-.head_top{
+.head{
     width: 100%;
     height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
-.imgbox {
-    width: 100px;
-    height: 60px;
-    float: left;
-    font-size: 0;
-    line-height: 0;
+.head img{
+    margin-left: 20px;
 }
-.imgbox img{
-    width: 100px;
-    height: 60px;
-}
-.search_box{
-    border-radius: 2px;
-    margin-top: 10px;
-    margin-left: 227px;
-    width: 338px;
-    height: 34px;
-    float: left;
-}
-.search-text {
-    border: 1px solid #e0e0e0;
-    height: 32px;
-    line-height: 32px;
-    width: 283px;
-    float: left;
-    font-size: 14px;
-    color: #333;
-}
-.search-btn {
-    width: 40px;
-    height: 36px;
-    background-image: url(../img/search.png);
-    background-size: 30px 30px;
-    background-color: #d32f2f;
-    background-position: center ;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    border: 1px solid darkgray;
-    float: left;
-}
-.user{
-    width: 100px;
+.head input{
+    margin-left: 300px;
     height: 30px;
-    margin-top: 13px;
-    margin-right: 50px;
-    float: right;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #D6D6D6;
+    outline: none;
+    padding-left: 20px;
+    font-size: 16px;
 }
-.user_login{
-    width: 40px;
+.head button{
+    margin-left: 10px;
     height: 30px;
-    float: left;
-}
-.user_register{
     width: 40px;
-    height: 30px;
-    float: right;
+    outline: none;
+    border: 1px solid #D6D6D6;
 }
-.a_text{
-    font-size: 13px;
-    color: #333;
-    cursor: pointer;
+.head button a{
+    color: black;
 }
-.a_text:hover{
-    color: #d32f2f;
-}
+
+
 .muen_top{
+    margin-top: 10px;
     border-bottom: 1px darkgray solid;
     width: 100%;
     height: 30px;
 }
-.muen_top ul li{
-    list-style: none;
-    float: left;
-    padding:0px 25px;
+.muen_top ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-.muen_top ul a{
-    font-weight: bold;
-    color: #333333;
+.muen_top ul li a{
+    color: black;
 }
-.muen_top ul a:hover{
-    color: #d32f2f;
-}
+
 .content_body{
-    width: 100%;
-    border-bottom: 1px darkgray solid;
-}
-.img_head{
     margin-top: 20px;
-    float: left;
-    width: 200px;
-    height: 270px;
-}
-.img_head img{
     width: 100%;
-    height: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px darkgray solid;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+#b_pic{
+    height: 270px;
+    width: 180px;
+}
+#b_pic img{
+    min-width: 100%;
+    min-height: 100%;
 }
 .novel_content{
-    width: 500px;
-    float: left;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-.novel_name{
+.n_title{
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
     color: #333;
     letter-spacing: 1.33px;
 }
-.novel_author{
+.info{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
     font-weight: bold;
-    font-size: 14px;
-    color: #333333;
 }
-.t1{
-    float: left;
+.i_left{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
-.t2{
-    float: left;
-    margin-left: 180px;
+.i_right{
+    margin-left: 60px;
+    display: flex;
+    height: 60px;
+    justify-content: space-around;
+    flex-direction: column;
 }
-.novel_time{
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333333;
-    border-bottom: 1px darkgray dashed;
+
+.n_intro{
+    margin-top: 20px;
+    width: 800px;
+    font-size: 13px;
 }
-.t3{
-    float: left;
-}
-.t4{
-    float: left;
-    margin-left: 100px;
-}
-.novel_introduce{
-    margin-top: 15px;
-    font-size: 14px;
-    color: #333333;
-}
+
+
+
 .novel_chapter{
-    margin-top: 10px;
     width: 100%;
     height: 340px;
 }
 .novel_table{
     width: 100%;
     height: 200px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 table tr td{
     border-bottom: 1px darkgray dashed;
