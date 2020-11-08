@@ -20,7 +20,7 @@ from mainsite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index),
-    path("to_detail", views.to_detail),
+    path("to_detail", views.get_chapter),
     # path("fenlei/",views.fenlei),
     path('search/',views.search),
 ]

@@ -51,7 +51,7 @@
                 {% for items in data%}
                     <tr class="tr_set">
                         {% for item in items %}
-                            <td><a href="{{ item.href }}">{{ item.chapterName }}</a></td>
+                            <td><a href="/read?href={{ item.href }}">{{ item.chapterName }}</a></td>
                         {% endfor %}
                     </tr>
                 {% endfor %}

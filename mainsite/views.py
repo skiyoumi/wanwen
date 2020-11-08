@@ -23,8 +23,8 @@ def to_detail(request):
     author = request.GET.get("author")
     list = neo_4j.get_novel_content(name, author)
     data = matring.list_split(list, 3)
-    detail=neo_4j.get_novel_detail(name,author)
-    return render(request, "detail.html", {'data': data,'novel':detail[0]})
+    detail = neo_4j.get_novel_detail(name, author)
+    return render(request, "detail.html", {'data': data, 'novel': detail[0]})
 
 
 # def fenlei(request):
@@ -40,4 +40,14 @@ def search(request):
         return redirect("/")
     else:
         result = neo_4j.get_novel(search_text)
-        return render(request,"search.html",{'data':result})
+        return render(request, "search.html", {'data': result})
+
+
+def get_chapter(request):
+    # name=凡人修仙传&author=忘语
+    name = request.GET.get("name")
+    author = request.GET.get("author")
+    data = neo_4j.get_nnovel_chapter(name=name, author=author)
+    body = matring.list_split(data, 3)
+    detail = neo_4j.get_novel_detail(name, author)
+    return render(request, "detail.html", {'data': body,'novel': detail[0]})
