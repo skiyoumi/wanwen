@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="head_top">
+        <div class="head_top clearfix">
             <div class="imgbox">
                 <img src="../static/img/logo.png">
             </div>
@@ -39,20 +39,20 @@
             </ul>
         </div>
         <div class="content_body">
-            <div class="img_head">
-                <img src="{{novel.imgurl}}">
-            </div>
+            <img src="{{novel.imgurl}}">
             <div class="novel_content">
                 <div class="novel_name">
                     <P>{{novel.name}}</P>
                 </div>
-                <div class="novel_author">
-                    <p class="t1">作者:   {{novel.author}}</p>
-                    <p class="t2">类别：  {{novel.type}}</p>
-                </div>
-                 <div class="novel_time">
-                    <p class="t3">最后更新:   2020-10-09 19:50:00</p>
-                    <p class="t4">最新:   {{novel.newest }}</p>
+                <div class="novel_info">
+                    <div class="novel_author">
+                        <p>作者:  {{novel.author}}</p>
+                        <p>最后更新:   2020-10-09 19:50:00</p>
+                    </div>
+                    <div class="novel_time">
+                        <p>类别：  {{novel.type}}</p>
+                        <p>最新:   {{novel.newest }}</p>
+                    </div>
                 </div>
                 <div class="novel_introduce">
                     <p>{% autoescape off %}{{ novel.intrduce }}{% endautoescape %}</p>
