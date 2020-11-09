@@ -31,21 +31,27 @@
             <div class="title_txt">
                 {% autoescape off %}
                     {{ content.title }}
-               {% endautoescape %}
+                {% endautoescape %}
             </div>
         </div>
         <div class="novel_author">
-            <div class="author_txt">作者：熊大吉&nbsp&nbsp|&nbsp&nbsp字数：2736&nbsp&nbsp|&nbsp&nbsp更新时间：2020-09-09</div>
+            {#            <div class="author_txt">作者：熊大吉&nbsp&nbsp|&nbsp&nbsp更新时间：2020-09-09</div>#}
         </div>
         <div class="navel_content">
-             {% autoescape off %}
+            {% autoescape off %}
                 {{ content.content }}
-                   {% endautoescape %}
+            {% endautoescape %}
         </div>
         <div class="btn">
-            <a href="#"><div class="btn_last">上一章</div></a>
-            <a href="#"><div class="btn_menu">目录</div></a>
-            <a href="#"><div class="btn_next">下一章</div></a>
+            <a href="/novel_read/?keyword={{ content.last }}">
+                <div class="btn_last">上一章</div>
+            </a>
+            <a href="/to_detail?name={{ request.GET.name }}&author={{ request.GET.author }}">
+                <div class="btn_menu">目录</div>
+            </a>
+            <a href="/novel_read/?keyword={{ content.next }}">
+                <div class="btn_next">下一章</div>
+            </a>
         </div>
     </div>
 </div>

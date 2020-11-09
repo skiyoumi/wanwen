@@ -19,9 +19,8 @@ from mainsite import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("read_book/", views.read),
+    path("novel_read/", views.novel_read),
     path("", views.index),
-    # path("to_detail", views.get_chapter),
-    # path("fenlei/",views.fenlei),
+    path("to_detail", views.get_chapter),
     path('search', views.search),
 ]

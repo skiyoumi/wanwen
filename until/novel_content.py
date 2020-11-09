@@ -4,7 +4,6 @@ import requests
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
 }
-url = "http://www.biquge.info/10_10582/4410172.html"
 
 # 获取源代码
 def get_html(url, headers):
@@ -18,14 +17,13 @@ def get_html(url, headers):
 
 
 def get_content(html):
-    parttern = re.compile('<h1>(.*?)</h1>.*?<div id="content"><!--go-->(.*?)<!--over-->', re.S)
+    parttern = re.compile('<h1>(.*?)</h1>.*?票.*?<a href="(.*?)">.*?章.*?<a href="(.*?)">.*?表.*?<a href="(.*?)">.*?<div id="content"><!--go-->(.*?)<!--over-->', re.S)
     items = re.findall(parttern, html)
-    data = {'title': items[0][0], 'content': items[0][1]}
+    data = {'title': items[0][0], 'last': items[0][1], 'chapter_list': items[0][2], 'next': items[0][3], 'content': items[0][4]}
     return data
 
-def read():
+def read_book(url):
     html = get_html(url, headers)
     data=get_content(html)
-    print(data)
     return data
 
