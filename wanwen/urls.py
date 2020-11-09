@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("read_book/", views.read),
     path("", views.index),
-    path("to_detail", views.get_chapter),
+    # path("to_detail", views.get_chapter),
     # path("fenlei/",views.fenlei),
     path('search', views.search),
 ]

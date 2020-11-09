@@ -2,7 +2,7 @@ from py2neo import Graph, Node, Relationship
 import re, requests
 from util import get_book_info
 
-graph = Graph("http://localhost:7474", username="neo4j", password="111111")
+graph = Graph("http://localhost:7474", username="neo4j", password="wyw2000222")
 
 
 # 小说 作者 名字 链接
