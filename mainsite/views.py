@@ -35,7 +35,12 @@ def search(request):
         return redirect("/")
     else:
         result = neo_4j.get_novel(search_text)
-        body = matring.list_split(result, 6)
+        print(result)
+        body = []
+        if len(result) > 0:
+            body = matring.list_split(result, 6)
+        else:
+            return render(request, "serach.html", {'err': '没有找到数据'})
         return render(request, "serach.html", {'data': body})
 
 
@@ -48,3 +53,31 @@ def get_chapter(request):
     body = matring.list_split(data, 3)
     detail = neo_4j.get_novel_detail(name, author)
     return render(request, "detail.html", {'data': body, 'novel': detail[0]})
+
+
+def more(request):
+    search_text = request.GET.get("type")
+    page = int(request.GET.get("page"))
+    # print(search_text)
+    if search_text == '':
+        return redirect("/")
+    else:
+        sum = neo_4j.get_type_num(search_text)
+        if sum % 30 == 0:
+            sum_page = sum / 3
+        else:
+            sum_page = int(sum / 30) + 1
+        if page <= 0:
+            return redirect('/more?type=' + search_text + '&page=1')
+        elif page > sum_page:
+            return redirect('/more?type=' + search_text + '&page=' + sum_page + '')
+        result = neo_4j.get_type(search_text, page=page)
+        print(len(result))
+        if len(result) > 0:
+            body = matring.list_split(result, 6)
+        else:
+            return render(request, "more.html", {'err': '没有找到数据'})
+        page = range(page, page + 5)
+        # for i in :
+        #     page.append(i)
+        return render(request, "more.html", {'data': body, 'sum': sum_page, 'page': page})

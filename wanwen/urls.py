@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index),
     path("to_detail", views.get_chapter),
-    # path("fenlei/",views.fenlei),
+    path("more", views.more),
     path('search', views.search),
 ]

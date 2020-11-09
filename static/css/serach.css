@@ -105,3 +105,16 @@ html,body,div,p,a,span,li,ul{
     text-indent:2em;
     line-height: 30px;
 }
+
+.bottom{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bottom a{
+    border-radius: 12px;
+    padding: 5px 7px 5px 7px;
+    border: black solid 1px;
+    margin: 0px 10px 0px 10px;
+}

@@ -11,27 +11,29 @@
 <body>
 <div class="box">
     <form action="/search" method="get">
-            <div class="banner">
-        <input  id="search" class="serach_text" type="text" placeholder="输入查询的书籍"  name="wd" value="{{ request.GET.wd }}">
-        <button class="button" type="submit"></button>
-    </div>
+        <div class="banner">
+            <input id="search" class="serach_text" type="text" placeholder="输入查询的书籍" name="wd"
+                   value="{{ request.GET.wd }}">
+            <button class="button" type="submit"></button>
+        </div>
     </form>
-<P style="text-align: center">{{ err }}</P>
+    <P style="text-align: center">{{ err }}</P>
     <div class="content">
         {% for items in data %}
             <div class="content1">
-                {% for item in items%}
+                {% for item in items %}
                     <div class="serach_book">
                         <div class="container demo-3">
                             <!-- Top Navigation -->
                             <ul class="grid cs-style-6">
                                 <li>
                                     <figure>
-                                        <img src="{{ item.imgurl }}" alt="img01" width="150px" height="200px" href="200">
+                                        <img src="{{ item.imgurl }}" alt="img01" width="150px" height="200px"
+                                             href="200">
                                         <figcaption>
                                             <h3 name={{ item.name }}></h3>
                                             <span class="paq_author">{{ item.author }}</span>
-                                            <a href="/to_detail?name={{ item.name }}&author={{item.author}}">阅读</a>
+                                            <a href="/to_detail?name={{ item.name }}&author={{ item.author }}">阅读</a>
                                         </figcaption>
                                     </figure>
                                 </li>
@@ -43,15 +45,16 @@
             </div>
         {% endfor %}
     </div>
-
-
+    <div class="bottom">
+        <a>总共{{ sum }}页</a>
+        <a href="/more?type={{ request.GET.type }}&page={{ request.GET.page|add:-1 }} ">上一页</a>
+        {% for i in page %}
+            <a style="{% if request.GET.page == i %}
+                border: cornflowerblue;color: white;
+            {% endif %}" href="/more?type={{ request.GET.type }}&page={{ i }} ">{{ i }}</a>
+        {% endfor %}
+        <a href="/more?type={{ request.GET.type }}&page={{ request.GET.page|add:1 }} ">下一页</a>
     </div>
-
-
 </div>
-
-</div>
-
-
 </body>
 </html>

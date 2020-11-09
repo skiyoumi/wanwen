@@ -3,52 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>万文小说爬取</title>
-    <link rel="shortcut icon" href="../static/img/ww_logo.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../static/img/ww_logo.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="../static/css/home_page.css">
     <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="../static/js/index.js"></script>
 </head>
 <body>
-    <div id="home_page">
-        <form action="search" method="get">
-            <div class="nav">
-                <input id="search" type="text" placeholder="Search..." name="wd" value="{{ request.GET.wd }}">
-                <button class="button" type="submit"></button>
+<div id="home_page">
+    <form action="search" method="get">
+        <div class="nav">
+            <input id="search" type="text" placeholder="Search..." name="wd" value="{{ request.GET.wd }}">
+            <button class="button" type="submit"></button>
+        </div>
+    </form>
+    <p class="title">发现</p>
+    <div class="discover">
+        {% for item in data %}
+            <div class="der">
+                <a href="../to_detail?name={{ item.name }}&author={{ item.author }}">
+                    <img src="{{ item.imgurl }}" width="90" height="120"
+                         onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
+                </a>
+                <span>{{ item.name }}</span>
             </div>
-        </form>
-        <p class="title">发现</p>
-        <div class="discover">
-            {% for item in data %}
-                <div class="der">
-                    <a href="../to_detail?name={{item.name}}&author={{item.author}}">
-                        <img src="{{ item.imgurl}}" width="90" height="120" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
-                    </a>
-                    <span>{{ item.name }}</span>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="form_tltle">
-            <ul>
-                <li id="xuanhuan"><a href="?type=玄幻小说">玄幻</a></li>
-                <li id="xiuzhen"><a href="?type=修真小说">修真</a></li>
-                <li id="dushi"><a href="?type=都市小说">都市</a></li>
-                <li id="chuanyue"><a href="?type=穿越小说">穿越</a></li>
-                <li id="wangyou"><a href="?type=网游小说">网游</a></li>
-                <li id="kehuan"><a href="?type=科幻小说">科幻</a></li>
-            </ul>
-            <p style="float: right"><a href="/more?type={{ request.GET.type }}">更多-></a></p>
-        </div>
-    `   <div id="type_content">
-           {% for item in type_data %}
-                <div class="der">
-                    <a href="../to_detail?name={{item.name}}&author={{item.author}}">
-                        <img src="{{ item.imgurl }}" width="90" height="120" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
-                    </a>
-                    <span>{{ item.name }}</span>
-                </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+    <div class="form_tltle">
+        <ul>
+            <li id="xuanhuan"><a href="?type=玄幻小说">玄幻</a></li>
+            <li id="xiuzhen"><a href="?type=修真小说">修真</a></li>
+            <li id="dushi"><a href="?type=都市小说">都市</a></li>
+            <li id="chuanyue"><a href="?type=穿越小说">穿越</a></li>
+            <li id="wangyou"><a href="?type=网游小说">网游</a></li>
+            <li id="kehuan"><a href="?type=科幻小说">科幻</a></li>
+        </ul>
+        <p style="float: right"><a href="/more?type={{ request.GET.type }}">更多-></a></p>
+    </div>
+    `
+    <div id="type_content">
+        {% for item in type_data %}
+            <div class="der">
+                <a href="../to_detail?name={{ item.name }}&author={{ item.author }}">
+                    <img src="{{ item.imgurl }}" width="90" height="120"
+                         onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'">
+                </a>
+                <span>{{ item.name }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 </div>
 </body>
 </html>

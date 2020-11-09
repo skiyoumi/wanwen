@@ -38,6 +38,22 @@ def get_novel(text):
     # print(items)
     return items
 
+# 通过小说类型者查询小说统计条数
+def get_type_num(text):
+    match_str = 'MATCH (t:type)-[n:novel_type]->(p:novel) where t.name="' + text + '" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce'
+    items = graph.run(match_str).data()
+    # print(match_str)
+    # print(items)
+    return len(items)
+
+# 通过小说类型者查询小说
+def get_type(text,page):
+    match_str = 'MATCH (t:type)-[n:novel_type]->(p:novel) where t.name="' + text + '" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce SKIP '+str((page-1)*30)+' LIMIT 30'
+    items = graph.run(match_str).data()
+    # print(match_str)
+    # print(items)
+    return items
+
 
 # 数据类型转换
 # def get_detail(items):
