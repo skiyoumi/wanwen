@@ -1,0 +1,44 @@
+html,body,div,p,a,span,li,ul{
+    padding: 0;
+    margin: 0;
+    font-family: "微软雅黑";
+    list-style: none;
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 100%;
+    height: 725px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+.box-left{
+    width: 45%;
+    height: 725px;
+     border: 1px solid red;
+    background: url("../img/left.png") no-repeat;
+    background-size: 100%;
+}
+.box-right{
+    width: 55%;
+    height: 725px;
+    border: 1px solid green;
+}
+.serach{
+    height: 70px;
+     border: 1px solid black;
+}
+.discover{
+     height: 70px;
+     border: 1px solid black;
+}

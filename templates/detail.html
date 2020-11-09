@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="../static/img/ww_logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../static/css/detail.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="head">
+            <img src="../static/img/logo.png" width="60">
+            <input type="text" placeholder="雪中悍刀行">
+            <button type="submit"><a href="javascript:void(0);">搜索</a></button>
+        </div>
+        <div class="muen_top">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="javascript:void(0);">我的书架</a></li>
+                <li><a href="javascript:void(0);">玄幻小说</a></li>
+                <li><a href="javascript:void(0);">修真小说</a></li>
+                <li><a href="javascript:void(0);">都市小说</a></li>
+                <li><a href="javascript:void(0);">穿越小说</a></li>
+                <li><a href="javascript:void(0);">网页小说</a></li>
+                <li><a href="javascript:void(0);">科幻小说</a></li>
+                <li><a href="javascript:void(0);">排行榜单</a></li>
+                <li><a href="javascript:void(0);">全部小说</a></li>
+            </ul>
+        </div>
+        <div class="content_body">
+            <div id="b_pic">
+                <img src="{{novel.imgurl}}" onerror="src='http://www.biquge.info/modules/article/images/nocover.jpg'" width="180" height="270">
+            </div>
+            <div class="novel_content">
+                <P class="n_title">{{novel.name}}</P>
+                <div class="info">
+                    <div class="i_left">
+                        <p>作者:   {{novel.author}}</p>
+                        <p>最后更新:   2020-10-09 19:50:00</p>
+                    </div>
+                    <div class="i_right">
+                        <p>类别：  {{novel.type}}</p>
+                    </div>
+                </div>
+                <p class="n_intro">简介：{% autoescape off %}{{ novel.intro }}{% endautoescape %}</p>
+            </div>
+        </div>
+        <div class="novel_chapter">
+            <table class="novel_table" cellpadding="0" cellspacing="0">
+                {% for items in data%}
+                    <tr class="tr_set">
+                        {% for item in items %}
+                            <td><a href="/read?href={{ item.href }}">{{ item.chapterName }}</a></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
