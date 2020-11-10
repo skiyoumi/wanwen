@@ -45,13 +45,13 @@
             {% endautoescape %}
         </div>
         <div class="btn">
-            <a href="/novel_read/?keyword={{ content.last }}&name={{ request.GET.name }}&author={{ request.GET.author }}">
+            <a href="/novel_read?keyword={{ content.last }}&name={{ request.GET.name }}&author={{ request.GET.author }}">
                 <div class="btn_last">上一章</div>
             </a>
             <a href="/to_detail?name={{ request.GET.name }}&author={{ request.GET.author }}">
                 <div class="btn_menu">目录</div>
             </a>
-            <a href="/novel_read/?keyword={{ content.next }}&name={{ request.GET.name }}&author={{ request.GET.author }}">
+            <a href="/novel_read?keyword={{ content.next }}&name={{ request.GET.name }}&author={{ request.GET.author }}">
                 <div class="btn_next">下一章</div>
             </a>
         </div>

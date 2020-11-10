@@ -13,7 +13,7 @@ def get_novel_info():
     return items
 
 
-# 小说 内容
+# 小说 内容l
 def get_novel_content(name, author):
     match_str = 'MATCH (n:novel {name:"' + name + '",author:"' + author + '"})-[r:novel_chapter]->(c:chapter) RETURN c.chapterurl as chapterurl,c.name as chapterName'
     items = graph.run(match_str).data()
