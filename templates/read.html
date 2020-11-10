@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阅读</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/read.css">
+</head>
+<body>
+<div class="top">
+    <div class="head_top">
+        <div class="imgbox">
+            <img src="../static/img/logo.jpg">
+        </div>
+        <div class="search_box">
+            <input class="search-text" name="keyword" type="text" placeholder="雪中悍刀行">
+            <input type="submit" class="search-btn" value=&nbsp;>
+        </div>
+        <div class="user">
+            <div class="user_login">
+                <a class="a_text">登录</a>
+            </div>
+            <div class="user_register">
+                <a class="a_text">注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content_read">
+        <div class="title">
+            <div class="title_txt">
+                {% autoescape off %}
+                    {{ content.title }}
+                {% endautoescape %}
+            </div>
+        </div>
+        <div class="novel_author">
+            {#            <div class="author_txt">作者：熊大吉&nbsp&nbsp|&nbsp&nbsp更新时间：2020-09-09</div>#}
+        </div>
+        <div class="navel_content">
+            {% autoescape off %}
+                {{ content.content }}
+            {% endautoescape %}
+        </div>
+        <div class="btn">
+            <a href="/novel_read/?keyword={{ content.last }}">
+                <div class="btn_last">上一章</div>
+            </a>
+            <a href="/to_detail?name={{ request.GET.name }}&author={{ request.GET.author }}">
+                <div class="btn_menu">目录</div>
+            </a>
+            <a href="/novel_read/?keyword={{ content.next }}">
+                <div class="btn_next">下一章</div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

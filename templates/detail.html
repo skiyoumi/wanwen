@@ -50,7 +50,7 @@
                 {% for items in data%}
                     <tr class="tr_set">
                         {% for item in items %}
-                            <td><a href="/read?href={{ item.href }}">{{ item.chapterName }}</a></td>
+                            <td><a href="/novel_read/?keyword={{ item.href }}&name={{ request.GET.name }}&author={{ request.GET.author }}">{{ item.chapterName }}</a></td>
                         {% endfor %}
                     </tr>
                 {% endfor %}
