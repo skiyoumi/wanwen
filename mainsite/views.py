@@ -8,9 +8,10 @@ from util import get_book_info
 # Create your views here.
 
 def novel_read(request):
-    url=request.GET.get("keyword")
-    content=novel_content.read_book(url);
-    return render(request, "read.html",{"content":content});
+    url = request.GET.get("keyword")
+    content = novel_content.read_book(url);
+    return render(request, "read.html", {"content": content});
+
 
 # 首页
 def index(request):
@@ -54,7 +55,7 @@ def search(request):
 # 小说章节
 def get_chapter(request):
     # 小说内容目录跳转
-    url=request.GET.get("keyword")
+    url = request.GET.get("keyword")
     print(url)
     # name=凡人修仙传&author=忘语
     name = request.GET.get("name")
@@ -63,7 +64,7 @@ def get_chapter(request):
     body = matring.list_split(data, 3)
     detail = neo_4j.get_novel_detail(name, author)
     print(name)
-    if(url == None):
+    if (url == None):
         data = detail[0]
     else:
         list = get_book_info.book_detail_info(url)
@@ -95,10 +96,10 @@ def more(request):
             return render(request, "more.html", {'err': '没有找到数据'})
         if page < 5:
             page_item = range(1, page + 5)
-        elif page >= 5 and page < sum_page- 5:
+        elif page >= 5 and page < sum_page - 5:
             page_item = range(page - 4, page + 5)
         elif page > 5 and page >= sum_page - 5:
-            page_item = range(page - 5, sum_page+1)
+            page_item = range(page - 5, sum_page + 1)
         # for i in :
         #     page.append(i)
         return render(request, "more.html", {'data': body, 'sum': sum_page, 'page': page_item})
