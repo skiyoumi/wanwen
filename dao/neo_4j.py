@@ -2,7 +2,7 @@ from py2neo import Graph, Node, Relationship
 import re, requests
 from util import get_book_info
 
-graph = Graph("http://localhost:7474", username="neo4j", password="111111")
+graph = Graph("http://localhost:7474", username="neo4j", password="a8823795")
 
 
 # 小说 作者 名字 链接
@@ -32,11 +32,18 @@ def get_novel_detail(name, author):
 
 
 # 通过小说名字或者作者查询小说
-def get_novel(text):
-    match_str = 'MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce'
+def get_novel(text,page):
+    match_str = 'MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce SKIP '+str((page-1)*30)+' LIMIT 30'
     items = graph.run(match_str).data()
     # print(items)
     return items
+
+#通过小说作者和书名查询小说的统计条数
+def get_auther_bookname_num(text):
+    match_str='MATCH (p:novel) where p.name=~ ".*' + text + '.*" or p.author=~".*' + text + '.*" return p.author as author,p.name as name,p.type as type,p.imgurl as imgurl,p.intrduce as intrduce '
+    items=graph.run(match_str).data()
+    print(items)
+    return len(items)
 
 # 通过小说类型者查询小说统计条数
 def get_type_num(text):

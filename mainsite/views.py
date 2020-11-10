@@ -30,18 +30,33 @@ def to_detail(request):
 # 小说搜索
 def search(request):
     search_text = request.GET.get("wd")
+    page = request.GET.get("page")
+    print(page)
     # print(search_text)
     if search_text == '':
         return redirect("/")
+    elif page==None and search_text != '':
+        return redirect("/search?wd="+search_text+"&page=1")
     else:
-        result = neo_4j.get_novel(search_text)
+        page=int(page)
+        sum = neo_4j.get_auther_bookname_num(search_text)
+        if sum % 30 == 0:
+            sum_page = sum / 3
+        else:
+            sum_page = int(sum / 30) + 1
+        if page <= 0:
+            return redirect('/search?wd=' + search_text + '&page=1')
+        elif page > sum_page:
+            return redirect('/search?wd=' + search_text + '&page=' + str(sum_page) + '')
+        result = neo_4j.get_novel(search_text,page=page)
         print(result)
         body = []
         if len(result) > 0:
             body = matring.list_split(result, 6)
         else:
             return render(request, "serach.html", {'err': '没有找到数据'})
-        return render(request, "serach.html", {'data': body})
+        page = range(page, page + 5)
+        return render(request, "serach.html", {'data': body,'sum': sum_page, 'page': page})
 
 
 # 小说章节

@@ -43,7 +43,16 @@
             </div>
         {% endfor %}
     </div>
-
+    <div class="bottom">
+        <a>总共{{ sum }}页</a>
+        <a href="/search?wd={{ request.GET.wd }}&page={{ request.GET.page|add:-1 }} ">上一页</a>
+        {% for i in page %}
+            <a style="{% if request.GET.page == i %}
+                border: cornflowerblue;color: white;
+            {% endif %}" href="/search?wd={{ request.GET.wd }}&page={{ i }} ">{{ i }}</a>
+        {% endfor %}
+        <a href="/search?wd={{ request.GET.wd }}&page={{ request.GET.page|add:1 }} ">下一页</a>
+    </div>
 
     </div>
 
