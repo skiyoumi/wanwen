@@ -11,10 +11,13 @@
             <div class="imgbox">
                 <img src="../static/img/logo.png">
             </div>
-            <div class="search_box">
-                <input class="search-text" name="keyword" type="text" placeholder="雪中悍刀行">
+            <form action="/search" method="get">
+                <div class="search_box">
+                <input class="search-text" name="search_name" type="text" placeholder="雪中悍刀行" value="{{ request.GET.type_name }}">
                 <input type="submit" class="search-btn" value=&nbsp;>
             </div>
+            </form>
+
             <div class="user">
                 <div class="user_login">
                     <a class="a_text">登录</a>

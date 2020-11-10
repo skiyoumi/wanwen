@@ -23,4 +23,5 @@ urlpatterns = [
     path("to_detail", views.to_detail),
     # path("fenlei/",views.fenlei),
     path('search',views.search),
+
 ]
