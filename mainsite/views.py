@@ -72,16 +72,15 @@ def more(request):
         elif page > sum_page:
             return redirect('/more?type=' + search_text + '&page=' + sum_page + '')
         result = neo_4j.get_type(search_text, page=page)
-        print(len(result))
         if len(result) > 0:
             body = matring.list_split(result, 6)
         else:
             return render(request, "more.html", {'err': '没有找到数据'})
         if page < 5:
             page_item = range(1, page + 5)
-        elif page > 5 and page < sum_page- 5:
-            page_item = range(page - 5, page + 5)
-        elif page > 5 and page > sum_page - 5:
+        elif page >= 5 and page < sum_page- 5:
+            page_item = range(page - 4, page + 5)
+        elif page > 5 and page >= sum_page - 5:
             page_item = range(page - 5, sum_page+1)
         # for i in :
         #     page.append(i)
