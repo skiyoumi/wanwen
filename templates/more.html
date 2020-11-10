@@ -47,13 +47,15 @@
     </div>
     <div class="bottom">
         <a>总共{{ sum }}页</a>
+    <a href="/more?type={{ request.GET.type }}&page=1 ">首页</a>
         <a href="/more?type={{ request.GET.type }}&page={{ request.GET.page|add:-1 }} ">上一页</a>
         {% for i in page %}
-            <a style="{% if request.GET.page == i %}
-                border: cornflowerblue;color: white;
+            <a style="{% if request.GET.page|linenumbers ==  i|linenumbers   %}
+                border: cornflowerblue;color: white;background: cornflowerblue;
             {% endif %}" href="/more?type={{ request.GET.type }}&page={{ i }} ">{{ i }}</a>
         {% endfor %}
         <a href="/more?type={{ request.GET.type }}&page={{ request.GET.page|add:1 }} ">下一页</a>
+    <a href="/more?type={{ request.GET.type }}&page={{ sum }} ">尾页</a>
     </div>
 </div>
 </body>

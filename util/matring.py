@@ -8,7 +8,9 @@ def list_split(items, n):
     for i in range(0, len(items), n):
         j = -1
         item = []
-        i = i + 6
+        i = i + n
+        if len(items) <= i:
+            i = len(items) - 1
         for m in range(k, i):
             j = m
             item.append(items[m])

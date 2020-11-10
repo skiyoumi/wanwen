@@ -11,7 +11,7 @@ def index(request):
 
     list = neo_4j.get_novel_info()
     if type_name == None:
-        type_list = neo_4j.felei("玄幻小说")
+        return redirect("/?type=玄幻小说")
     else:
         type_list = neo_4j.felei(type_name)
     return render(request, "index.html", {'data': list, 'type_data': type_list})
@@ -77,7 +77,12 @@ def more(request):
             body = matring.list_split(result, 6)
         else:
             return render(request, "more.html", {'err': '没有找到数据'})
-        page = range(page, page + 5)
+        if page < 5:
+            page_item = range(1, page + 5)
+        elif page > 5 and page < sum_page- 5:
+            page_item = range(page - 5, page + 5)
+        elif page > 5 and page > sum_page - 5:
+            page_item = range(page - 5, sum_page+1)
         # for i in :
         #     page.append(i)
-        return render(request, "more.html", {'data': body, 'sum': sum_page, 'page': page})
+        return render(request, "more.html", {'data': body, 'sum': sum_page, 'page': page_item})
