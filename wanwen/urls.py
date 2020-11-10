@@ -19,6 +19,7 @@ from mainsite import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("novel_read", views.novel_read),
     path("", views.index),
     path("to_detail", views.get_chapter),
     path("more", views.more),

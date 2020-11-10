@@ -10,7 +10,7 @@ def list_split(items, n):
         item = []
         i = i + n
         if len(items) <= i:
-            i = len(items) - 1
+            i = len(items)
         for m in range(k, i):
             j = m
             item.append(items[m])

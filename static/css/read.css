@@ -1,0 +1,199 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+  .clearfix {
+    zoom: 1;
+}
+.top{
+    width: 100%;
+    height: 60px;
+}
+.head_top{
+    width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+}
+.imgbox {
+    width: 100px;
+    height: 60px;
+    float: left;
+    font-size: 0;
+    line-height: 0;
+}
+.imgbox img{
+    width: 100px;
+    height: 60px;
+}
+.search_box{
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-left: 227px;
+    width: 338px;
+    height: 34px;
+    float: left;
+}
+.search-text {
+    border: 1px solid #e0e0e0;
+    height: 32px;
+    line-height: 32px;
+    width: 283px;
+    float: left;
+    font-size: 14px;
+    color: #333;
+}
+.search-btn {
+    width: 40px;
+    height: 36px;
+    background-image: url(../img/search.png);
+    background-size: 30px 30px;
+    background-color: #d32f2f;
+    background-position: center ;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 1px solid darkgray;
+    float: left;
+}
+.user{
+    width: 100px;
+    height: 30px;
+    margin-top: 13px;
+    margin-right: 50px;
+    float: right;
+}
+.user_login{
+    width: 40px;
+    height: 30px;
+    float: left;
+}
+.user_register{
+    width: 40px;
+    height: 30px;
+    float: right;
+}
+.a_text{
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+}
+.a_text:hover{
+    color: #d32f2f;
+}
+
+.content{
+    width: 100%;
+    background: #D7CBB4;
+}
+.content_read{
+    width: 1000px;
+    margin: 0px auto;
+    background: #FAEED7 ;
+}
+.title{
+    float: top;
+    width: 700px;
+    height: 40px;
+    margin: 0 auto;
+    padding-top: 80px;
+    text-align: center;
+}
+.title_txt{
+    line-height: 40px;
+    font-size: 28px;
+    color: #333;
+    letter-spacing: 1.08px;
+    display: inline;
+    font-weight: 700;
+}
+.novel_author{
+    float: top;
+    width: 700px;
+    height: 40px;
+    margin: 10px auto;
+    border-bottom: 1px solid #BDBDBD;
+    text-align: center;
+}
+.author_txt{
+    font-size: 14px;
+    color: grey;
+}
+.navel_content{
+    float: top;
+    width: 820px;
+    height: auto;
+    margin: 10px auto;
+    text-align: center;
+}
+.navel_txt{
+    font-family: '宋体',SimSun,STSong;
+    font-size: 14px;
+    line-height: 3;
+}
+.btn{
+    width: 700px;
+    height: 50px;
+    float: bottom;
+    margin: 0 auto;
+}
+.btn a{
+    color: #333333;
+}
+.btn_last{
+    width: 120px;
+    height: 50px;
+    float: left;
+    line-height: 45px;
+    font-size: 18px;
+    margin-left: 80px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+.btn_last:hover{
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+}
+.btn_menu{
+    width: 120px;
+    height: 50px;
+    float: left;
+    margin-left: 60px;
+    line-height: 45px;
+    font-size: 18px;
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid black;
+}
+.btn_menu:hover{
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+}
+.btn_next{
+    width: 120px;
+    height: 50px;
+    float: left;
+    line-height: 45px;
+    margin-left: 60px;
+    font-size: 18px;
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid black;
+}
+.btn_next:hover{
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+}
