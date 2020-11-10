@@ -1,13 +1,14 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
 from dao import neo_4j
-import math
 from util import matring
-import json
 
 
 # Create your views here.
+
+# 首页
 def index(request):
     type_name = request.GET.get("type")
+
     list = neo_4j.get_novel_info()
     if type_name == None:
         type_list = neo_4j.felei("玄幻小说")
@@ -16,33 +17,67 @@ def index(request):
     return render(request, "index.html", {'data': list, 'type_data': type_list})
 
 
-# 跳转到小说详情页面
+# 小说详情
 def to_detail(request):
     name = request.GET.get("name")
     author = request.GET.get("author")
     list = neo_4j.get_novel_content(name, author)
-    novel = neo_4j.get_novel_detail_info(name, author)
     data = matring.list_split(list, 3)
-    print(novel)
-    return render(request, "detail.html", {'data': data, 'novel': novel[0]})
+    detail = neo_4j.get_novel_detail(name, author)
+    return render(request, "detail.html", {'data': data, 'novel': detail[0]})
 
 
-# def fenlei(request):
-#     type_name=request.GET.get("type")
-#     list = neo_4j.get_novel_info()
-#     type_list = result = neo_4j.felei(type_name)
-#     return render(request, "index.html", {'data': list, 'type_data': type_list})
-
-#搜索
+# 小说搜索
 def search(request):
-    search_text = request.GET.get("search_name") #获取搜索关键词
-    print(search_text)
+    search_text = request.GET.get("wd")
+    # print(search_text)
     if search_text == '':
         return redirect("/")
     else:
         result = neo_4j.get_novel(search_text)
-        data=matring.list_split(result, 6)
-        #print(data)
-        return render(request, "serach.html", {'data': data})
+        print(result)
+        body = []
+        if len(result) > 0:
+            body = matring.list_split(result, 6)
+        else:
+            return render(request, "serach.html", {'err': '没有找到数据'})
+        return render(request, "serach.html", {'data': body})
 
 
+# 小说章节
+def get_chapter(request):
+    # name=凡人修仙传&author=忘语
+    name = request.GET.get("name")
+    author = request.GET.get("author")
+    data = neo_4j.get_nnovel_chapter(name=name, author=author)
+    body = matring.list_split(data, 3)
+    detail = neo_4j.get_novel_detail(name, author)
+    return render(request, "detail.html", {'data': body, 'novel': detail[0]})
+
+
+def more(request):
+    search_text = request.GET.get("type")
+    page = int(request.GET.get("page"))
+    # print(search_text)
+    if search_text == '':
+        return redirect("/")
+    else:
+        sum = neo_4j.get_type_num(search_text)
+        if sum % 30 == 0:
+            sum_page = sum / 3
+        else:
+            sum_page = int(sum / 30) + 1
+        if page <= 0:
+            return redirect('/more?type=' + search_text + '&page=1')
+        elif page > sum_page:
+            return redirect('/more?type=' + search_text + '&page=' + sum_page + '')
+        result = neo_4j.get_type(search_text, page=page)
+        print(len(result))
+        if len(result) > 0:
+            body = matring.list_split(result, 6)
+        else:
+            return render(request, "more.html", {'err': '没有找到数据'})
+        page = range(page, page + 5)
+        # for i in :
+        #     page.append(i)
+        return render(request, "more.html", {'data': body, 'sum': sum_page, 'page': page})

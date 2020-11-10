@@ -44,13 +44,13 @@ function request_data(type_name) {
             //请求地址
             url: "fenlei/",
             //数据，json字符串
-            data: {'type': type_name},
+            data: {'type': 2},
             beforeSend: function () {
                 $("loading").show();
             },
             //请求成功
-            success: function (result) {
-                console.log(result);
+            success: function () {
+                console.log(result);result
                 $('#type_content').empty()
                 load_data(result)
             },
